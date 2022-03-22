@@ -1,0 +1,8 @@
+ When it comes to comparing Flutter with React Native, the most popular argument has been more native user experience on flutter with buttery smooth animations and graphics drawing support. Flutter uses (Skia)[https://skia.org/], a very popular, open-source, made by Google 2D graphics engine used in Chrome and Android to draw everything natively with great performance. While React Native uses Platform specific rendering engines, which is great but slower. All this slowness is there because of a bridge which sends all information to Java/ObjC in batches. When bridge is busy with a lot of work, FPS drops, you see blank spaces in FlatLists etc with heavier components because the bridge is overloaded. 
+
+ React Native made a good jump in performance with Hermes release but soon the React Native team realized that the only factor holding back performance was the bridge. React Native needed a better and faster way of communication with Native Platforms. And the React Native team started to work on the new architecture (JSI + Fabric + Turbo Modules). 
+ 
+ Today the new architecture is in it's final stages to be released to the public in next react-native release and many things for React Native are changing and improving. It's still very vague how the new architecture works however some libraries have been built using the new architecture. 
+
+Currently only a handful of libraries have used to this new architecture. The most prominent ones have been (react-native-reanimated)[] and (@spotify/react-native-skia)[]. Today we will be exploring @spotify/react-native-skia by creating a free-hand drawing app to understand the possibilities and how it enables us to do amazing stuff fully native at 60FPS!
+
