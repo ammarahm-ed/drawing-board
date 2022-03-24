@@ -14,6 +14,17 @@ const Toolbar = () => {
   const setStroke = useDrawingStore(state => state.setStroke);
   const [showStrokes, setShowStrokes] = useState(false);
 
+  const onStrokeChange = (stroke: number) => {
+    setStrokeWidth(stroke);
+    setShowStrokes(false);
+    setStroke(utils.getPaint(stroke, currentColor));
+  };
+
+  const onChangeColor = (color: string) => {
+    setColor(color);
+    setStroke(utils.getPaint(currentStrokeWidth, color));
+  };
+
   return (
     <>
       {showStrokes && (
@@ -29,11 +40,7 @@ const Toolbar = () => {
             <Stroke
               key={stroke}
               stroke={stroke}
-              onPress={() => {
-                setStrokeWidth(stroke);
-                setShowStrokes(false);
-                setStroke(utils.getPaint(stroke, currentColor));
-              }}
+              onPress={() => onStrokeChange(stroke)}
             />
           ))}
         </View>
@@ -75,14 +82,7 @@ const Toolbar = () => {
         />
 
         {constants.colors.map(item => (
-          <Color
-            key={item}
-            color={item}
-            onPress={() => {
-              setColor(item);
-              setStroke(utils.getPaint(currentStrokeWidth, item));
-            }}
-          />
+          <Color key={item} color={item} onPress={() => onChangeColor(item)} />
         ))}
       </View>
     </>
