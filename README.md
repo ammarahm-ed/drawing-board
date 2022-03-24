@@ -1,5 +1,5 @@
 # drawing-app
-A fully native drawing app made with react-native-skia with 60 frames per second performance. Created for my blogpost.
+A fully native drawing app made with react-native-skia with 60 frames per second performance. Created for my [blogpost](https://blog.notesnook.com/drawing-app-with-react-native-skia).
 
 ## Run the app
 Clone this repository
